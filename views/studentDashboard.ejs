@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../Images/3.svg" />
+    <title>Student Dashboard</title>
+
+    <!-- Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/876f50f80d.js" crossorigin="anonymous"></script>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="../CSS/studentDashboard.css">
+</head>
+
+<body>
+    <nav class="DesktopNav">
+        <img src="../Images/1.svg" alt="Bitquark Technologies">
+        <span class="email">Hello Student!</span>
+        <div class="buttons">
+            <a href="/" class="button1">Home</a>
+            <a href="/logout/student" class="button1">Logout</a>
+            <a href="/complain" class="button1">Complain</a>
+        </div>
+    </nav>
+
+    <!-- mobile nav  -->
+    <nav class="MobileNav">
+        <!-- <span class="email">prashantkumarlmp@gmail.com</span> -->
+        <span class="email">Hii</span>
+        <div class="icons">
+            <i class="icon1 fas fa-regular fa-bars" style="color: black;"></i>
+            <i class="icon2 toggle fas fa-solid fa-xmark fa-spin" style="color: black;"></i>
+        </div>
+    </nav>
+
+    <!-- popup -->
+    <div class="popup toggle">
+        <div class="Popupbuttons" action="" method="post">
+            <a href="/logout/student" class="button1">Logout</a>
+            <a href="/complain" class="button1">Complain</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="table">
+            <!-- <div class="table_header">
+                <p>Namaste Student!</p>
+            </div> -->
+
+            <div class="table_section">
+                <%if(Data.length>0){%>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>S No.</th>
+                                <th>Name</th>
+                                <th>Room Number</th>
+                                <th>Building</th>
+                                <th>Complain Detail</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <%Data.forEach(function(item, index){ %>
+                                <tr class="clicked_tr">
+                                    <td>
+                                        <%=index+1%>
+                                    </td>
+                                    <td>
+                                        <%=item.firstName%>
+                                            <%=item.lastName%>
+                                    </td>
+                                    <td>
+                                        <%=item.roomNumber%>
+                                    </td>
+                                    <td>
+                                        <%=item.building%>
+                                    </td>
+                                    <td class="complainText_td">
+                                        <%=item.complainText%>
+                                    </td>
+                                    <td>
+                                        <%=item.status%>
+                                    </td>
+                                </tr>
+                                <%})%>
+                        </tbody>
+                    </table>
+                    <%}else{%>
+                        <div style="width: 100%; margin-top: 100px; display: flex; justify-content: center;">
+                            <h2>No Complains is Present Currently</h2>
+                        </div>
+                        <% }%>
+            </div>
+    </main>
+
+
+    <footer class="cms-footer">
+        <p>&copy; 2025 BitQuark Technologies. All rights reserved.</p>
+      </footer>
+      
+
+    <script src="/js/studentButton.js"></script>
+</body>
+
+</html>

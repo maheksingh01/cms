@@ -1,0 +1,227 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  /* Desktop Navigation */
+  .DesktopNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: black;
+    color: white;
+  }
+  
+  .DesktopNav img {
+    height: 50px;
+  }
+  
+  .email {
+    font-size: 18px;
+  }
+  
+  .buttons {
+    display: flex;
+    column-gap: 10px;
+  }
+  .button1 {
+    /* text-decoration: none;
+    background-color: #ff9800;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: 0.3s; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+    /* border-radius: 10px; */
+    /* background-color: rgb(14, 96, 147); */
+    font-size: 1rem;
+    font-weight: bold;
+    /* color: white; */
+    /* border: none; */
+    background: transparent;
+    color: #ffc107;
+    border: 2px solid #ffc107;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  a{
+    text-decoration: none;
+}
+
+  .button2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    background: transparent;
+    color: #ffc107;
+    border: 2px solid #ffc107;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .button2:hover {
+    background-color: #ffc107;
+    color: #2c2f33;
+  }
+  
+  /* .buttons .button1:hover {
+    background-color: #e68900;
+  } */
+
+  .button1:hover {
+    background-color: #ffc107;
+    color: #2c2f33;
+}
+  
+  /* Mobile Navigation */
+  .MobileNav {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+  }
+  
+  .icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icons i {
+    font-size: 24px;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  
+  /* Popup Menu */
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup .Popupbuttons {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .popup .Popupbuttons a {
+    display: block;
+    margin: 10px 0;
+    text-decoration: none;
+    font-size: 18px;
+    color: #222;
+  }
+  
+  /* Table Styles */
+  .table_section {
+    width: 95%;
+    margin: 20px auto;
+    overflow-x: auto; /* Make table responsive */
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  /* Buttons */
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  button i {
+    font-size: 18px;
+    color: red;
+  }
+  
+  .resolveBtn {
+    background-color: green;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .resolveBtn:hover {
+    background-color: darkgreen;
+  }
+  
+  /* Mobile Styles */
+  @media screen and (max-width: 768px) {
+    .DesktopNav {
+      display: none;
+    }
+  
+    .MobileNav {
+      display: flex;
+    }
+  
+    .popup {
+      display: flex;
+    }
+  
+    th, td {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    .resolveBtn {
+      font-size: 12px;
+      padding: 3px 7px;
+    }
+  
+    img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  

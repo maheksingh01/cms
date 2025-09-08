@@ -1,0 +1,114 @@
+body{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background-color: black;
+    text-align: center;
+    padding: 2rem; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    /* height: 100%; */
+    /* max-width: 400px; */
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.container img {
+    width: 50%;
+    max-width: 150px;
+}
+
+.container h2 {
+    text-align: center;
+    margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Bordered form */
+form {
+    border: 3px solid #feac5e;
+    /* width: 45%;
+    height: 75%; */
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    /* padding: 1rem; */
+  }
+
+  /* .box{
+    background-color: #ffff;
+  } */
+
+.container label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.container input[type="text"],
+.container input[type="password"] {
+    /* width: 70%; */
+    width: 80%;
+    padding: 12px 20px;
+    text-align: center;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.container button {
+    /* width: 70%; */
+    width: 80%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    margin: 4%;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container button:hover {
+    background-color: #0056b3;
+}
+
+.signin {
+    width: 100%;
+    text-align: center;
+    color: #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+form {
+    width: 95%;
+}
+.container img {
+    width: 40%;
+}
+}
+
+@media (max-width: 480px) {
+.container {
+    padding: 1.5rem;
+}
+.container img {
+    width: 60%;
+}
+.container input[type="text"],
+.container input[type="password"] {
+    width: 90%;
+}
+.container button {
+    width: 90%;
+}
+}

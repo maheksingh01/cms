@@ -1,0 +1,143 @@
+
+ /* footer */
+
+
+ footer {
+    
+    background-color: #f8f8f8;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 40px 20px;
+    border-top: 1px solid #e0e0e0;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-quick,
+.footer-support,
+.footer-services,
+.footer-contact {
+    flex: 1 1 200px;
+    padding: 20px;
+}
+
+.footer-quick h2, .footer-support h2, .footer-services h2, .footer-contact h2 {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    color: #4353B7;
+    font-weight: 600;
+}
+
+.footer-quick ul,
+.footer-support ul,
+.footer-services ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-quick li,
+.footer-support li,
+.footer-services li {
+    margin-bottom: 8px;
+}
+
+.footer-quick a,
+.footer-support a,
+.footer-services a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 5px 0;
+}
+
+.footer-quick a:hover,
+.footer-support a:hover,
+.footer-services a:hover {
+    color: #0056b3;
+}
+
+.footer-contact p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.footer-contact .social-icons {
+    margin-top: 20px;
+}
+
+.footer-contact .social-icons a {
+    font-size: 1.5em;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer-contact .social-icons a.fa-instagram {
+    color: #E1306C; /* Instagram color */
+}
+
+.footer-contact .social-icons a.fa-facebook {
+    color: #1877F2; /* Facebook color */
+}
+
+.footer-contact .social-icons a.fa-linkedin {
+    color: #0A66C2; /* LinkedIn color */
+}
+
+.footer-contact .social-icons a.fa-twitter {
+    color: #1DA1F2; /* Twitter/X color */
+}
+
+.footer-contact .social-icons a:hover {
+    opacity: 0.8; /* Slightly fade on hover */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.footer-bottom a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-quick,
+    .footer-support,
+    .footer-services,
+    .footer-contact {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-contact .social-icons {
+        justify-content: center;
+    }
+}

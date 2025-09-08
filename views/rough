@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login</title>
+    <!-- CSS Bootstrap  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!-- CSS File -->
+    /* <link rel="stylesheet" href="./CSS/login.css" /> */
+    <style>
+      html {
+        scroll-behavior: smooth;
+    }
+    
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+    
+    .navbar {
+        display: flex
+    ;
+        justify-content: space-between;
+        align-items: center;
+        height: 108px;
+        padding: 0 80px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(to right, #f5f5f5, #ffffff);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        transition: background 0.3s ease-in-out;
+       
+    }
+    
+    /* Logo */
+    .logo img {
+      margin-top: -65px;
+        height: 232px;
+        width: auto;
+    }
+    
+    /* Navigation Links */
+    .nav-links {
+      margin-top: -46px;
+        display: flex;
+        list-style: none;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .nav-links li {
+        margin: 21px;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        /* color: #6359ad; */
+        color:#111;
+        font-size: 15px;
+        font-weight: 700;
+        transition: color 0.3s ease-in-out;
+    }
+    
+    
+    .nav-links a:hover {
+        color: #8B2635;
+    }
+    
+    /* Authentication Buttons */
+    .auth-buttons {
+        display: flex;
+        margin-left: 33px;
+        align-items: center;
+    }
+    
+    .auth-buttons button {
+        /* background-color:#8B2635;  */
+        background-color:#4353B7; 
+        color: white;
+        padding: 10px 20px; /* Adjust padding as needed */
+        border: none;
+        border-radius: 5px; /* Or the border radius from the image */
+        font-size: 16px; /* Adjust font size as needed */
+        font-weight: bold; /* If the text is bold */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        padding-right: 11px;
+    }
+    .auth-buttons button a{
+        color: white;
+    }
+    .auth-buttons button a:hover{
+        color: rgb(243, 238, 238);
+    }
+    
+    
+    .auth-buttons .login-btn:hover {
+        transform: scale(1.05);
+        /* background-color: #3858AC; */
+        background-color:#4353B7; 
+        /* color: white; */
+    }
+    .auth-buttons .signup-btn:hover {
+        transform: scale(1.05);
+        border: 2px solid #f4f3f1;
+        /* color: white; */
+    }
+    
+    /* Hamburger Menu */
+    .hamburger {
+        display: none;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .hamburger:hover {
+        transform: scale(1.1);
+    }
+    
+    /* Responsive Navbar */
+    @media (max-width: 1024px) {
+        .navbar {
+            padding: 0 48px;
+        }
+    
+        .logo img {
+          margin-top: -50px;
+            height: 201px;
+        }
+    
+        .nav-links li {
+          margin: 11px;
+      }
+    
+        .nav-links a {
+            font-size: 14px;
+        }
+    
+        .auth-buttons button {
+            font-size: 14px;
+            padding: 10px 20px;
+        }
+        .nav-links {
+          margin-top: -30px;
+          display: flex
+      ;
+          list-style: none;
+          transition: all 0.3s ease-in-out;
+      }
+    }
+    @media (max-width: 1024px) {}
+    
+    /* Tablets & Mobile (Width ≤ 768px) */
+    @media (max-width: 800px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 109px;
+            left: 0;
+            width: 100%;
+            background:whitesmoke;
+            /* background: #111; */
+            text-align: center;
+            padding: 16px 0;
+        }
+    
+        .nav-links li {
+            margin: 9px 0;
+            margin-left: 14px;
+        }
+    
+        .nav-links a {
+            font-size: 16px;
+            display: block;
+            padding: 8px 0;
+        }
+    
+        /* Move Auth Buttons to the bottom */
+        .auth-buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 16px 0;
+            gap: 8px;
+            order: 1; /* Place after nav links */
+        }
+    
+        .auth-buttons button {
+            width: 15%;
+            font-size: 13px;
+            margin-left: -39px;
+            padding: 0px;
+        }
+        .hamburger {
+          margin-top: -47px;
+            color: #18183f;
+            display: block;
+            cursor: pointer;
+            padding-right: 13px;
+        }
+        /* Show menu when toggled */
+        .show-menu {
+            display: flex !important;
+        }
+    
+        /* Assuming you have a contact button or link with class "contact-link" */
+        .nav-links li.contact-link {
+            order: -1; /* Place before auth buttons when menu is active*/
+        }
+    
+        .auth-buttons {
+            order: 0; /* Place after contact link when menu is active*/
+        }
+        
+    }
+    
+    @media (max-width: 550px) {
+        .auth-buttons button {
+            width: 15%;
+            font-size: 13px;
+            margin-left: -44px;
+            padding: 0px;
+        }
+    }
+    
+    
+    @media (max-width: 442px) {
+        .auth-buttons button {
+            width: 22%;
+            font-size: 13px;
+            margin-left: -48px;
+            padding: 0px;
+        }
+    }
+    @media (max-width: 340px) {
+        .auth-buttons button {
+            width: 26%;
+            font-size: 13px;
+            margin-left: -48px;
+            padding: 0px;
+        }
+    }
+    
+    @media (max-width: 440px) {
+        .logo img {
+            margin-left: -21px;
+            height: 184px;
+            margin-top: -40px;
+        }
+        .hamburger {
+          margin-top: -36px;
+          color: #18183f;
+          display: block;
+          cursor: pointer;
+          padding-right: 13px;
+      }
+    }
+    
+    
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block; /* Make each link a block-level element */
+      transition: background-color 0.3s ease; /* Smooth hover effect */
+    }
+    
+    .dropdown-content a:hover {
+      background-color: #ddd;
+      border-radius:5px; /* Light gray on hover */
+    }
+    
+    .dropdown-content {
+      display: none; /* Hidden by default */
+      position: absolute; /* To position it below the button */
+      background-color: #f9f9f9; /* Light background */
+      min-width: 160px; /* Minimum width to hold content */
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Subtle shadow */
+      z-index: 1; /* Ensure it's above other elements */
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      top: 98%;
+      right: 48px;
+      left: auto;
+    }
+    
+    /* Style for the "Login" button to act as the container */
+    .login-btn {
+      position: relative; /* Needed for absolute positioning of the dropdown */
+      /* Add other button styles as before */
+    }
+    
+    /* Style the span containing text and icon */
+    .login-btn span {
+      display: inline-flex; /* Align text and icon */
+      align-items: center; /* Vertically center items */
+      gap: 5px; /* Space between text and icon */
+      cursor: pointer; /* Indicate it's clickable */
+    }
+    
+    /* Mobile view (max-width: 768px or your chosen breakpoint) */
+    @media (max-width: 768px) {
+    
+    
+      .dropdown-content {
+        width: 80%;
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        top: 98%;
+        right: 48px;
+        left: auto;
+    }
+    .auth-buttons button {
+      width: 15%;
+      font-size: 13px;
+      margin-left: -44px;
+      padding: 11px;
+      padding-left: 18px;
+    }
+    
+    
+    }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../Images/1.svg" alt="Logo">
+      </div>
+  
+      <ul class="nav-links" >
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <!-- <li><a href="#pricing">Features</a></li>
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#contact">Contact</a></li> -->
+  
+  
+        <div class="auth-buttons">
+          <button class="login-btn">
+            <span onclick="toggleDropdown()">
+              Login
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-left: -2px;">
+                <path d="M7 10l5 5 5-5z"/>
+              </svg>
+            </span>
+          </button>
+          <div class="dropdown-content" id="dropdownMenu">
+            <a href="/registration">Registration</a>
+            <!-- <a href="/admin">Admin Login</a> -->
+            <a href="/login">Login</a>
+          </div>
+        </div>
+    
+        
+      </ul>
+  
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="container-left">
+        <div id="adminForm" class="form-container active">
+          <h2 style="font-weight: 700; color: black; padding-bottom: 19px; font-size: 25px;">
+            Admin Login
+          </h2>
+          <form action="/admin" method="POST">
+            <input
+              class="box"
+              type="text"
+              placeholder="Enter Admin User ID"
+              name="AdminEmail"
+              id="email"
+              required
+            />
+            <input
+              class="box"
+              type="password"
+              placeholder="Enter Password"
+              name="AdminPassword"
+              id="psw"
+              required
+            />
+            <button
+              style="margin-top: 5px; background-color: #4353B7;"
+              type="submit"
+              name="AdminButton"
+              class="btn btn-primary w-100"
+            >
+              Log In
+            </button>
+          </form>
+          <div style="margin-top: 20px;" class="form-footer">
+            <p>No account? <a href="/registration">Register</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="image-section">
+        <img src="./Images/1.svg" alt="Bitquark Technologies" />
+      </div>
+    </div>
+    
+  </body>
+  <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector(".nav-links");
+      const authButtons = document.querySelector(".auth-buttons");
+    
+      navLinks.classList.toggle("show-menu");
+      authButtons.classList.toggle("show-menu");
+    }
+    
+    function toggleDropdown() {
+      const dropdown = document.getElementById("dropdownMenu");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+    
+    // Close dropdown when clicking outside the button or dropdown
+    window.onclick = function(event) {
+      const dropdown = document.getElementById("dropdownMenu");
+      const loginButton = document.querySelector('.login-btn'); // Get the button element
+    
+      if (dropdown && dropdown.style.display === "block" && event.target !== loginButton && !loginButton.contains(event.target) && event.target !== dropdown && !dropdown.contains(event.target)) {
+        dropdown.style.display = "none";
+      }
+    }
+  </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+
+<head>
+  <title>E-DESK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS Bootstrap  -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- CSS File -->
+  <link rel="stylesheet" href="../CSS/style.css" />
+  <link rel="stylesheet" href="../CSS/navbar.css" />
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+    crossorigin="anonymous"
+  />
+  <script defer
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"
+  ></script>
+<style>
+  html {
+    scroll-behavior: smooth;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex
+;
+    justify-content: space-between;
+    align-items: center;
+    height: 108px;
+    padding: 0 80px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #f5f5f5, #ffffff);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s ease-in-out;
+   
+}
+
+/* Logo */
+.logo img {
+  margin-top: -65px;
+    height: 232px;
+    width: auto;
+}
+
+/* Navigation Links */
+.nav-links {
+  margin-top: -46px;
+    display: flex;
+    list-style: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links li {
+    margin: 21px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    /* color: #6359ad; */
+    color:#111;
+    font-size: 15px;
+    font-weight: 700;
+    transition: color 0.3s ease-in-out;
+}
+
+
+.nav-links a:hover {
+    color: #8B2635;
+}
+
+/* Authentication Buttons */
+.auth-buttons {
+    display: flex;
+    margin-left: 33px;
+    align-items: center;
+}
+
+.auth-buttons button {
+    /* background-color:#8B2635;  */
+    background-color:#4353B7; 
+    color: white;
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none;
+    border-radius: 5px; /* Or the border radius from the image */
+    font-size: 16px; /* Adjust font size as needed */
+    font-weight: bold; /* If the text is bold */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding-right: 11px;
+}
+.auth-buttons button a{
+    color: white;
+}
+.auth-buttons button a:hover{
+    color: rgb(243, 238, 238);
+}
+
+
+.auth-buttons .login-btn:hover {
+    transform: scale(1.05);
+    /* background-color: #3858AC; */
+    background-color:#4353B7; 
+    /* color: white; */
+}
+.auth-buttons .signup-btn:hover {
+    transform: scale(1.05);
+    border: 2px solid #f4f3f1;
+    /* color: white; */
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hamburger:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive Navbar */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0 48px;
+    }
+
+    .logo img {
+      margin-top: -50px;
+        height: 201px;
+    }
+
+    .nav-links li {
+      margin: 11px;
+  }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .auth-buttons button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+    .nav-links {
+      margin-top: -30px;
+      display: flex
+  ;
+      list-style: none;
+      transition: all 0.3s ease-in-out;
+  }
+}
+@media (max-width: 1024px) {}
+
+/* Tablets & Mobile (Width ≤ 768px) */
+@media (max-width: 800px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 109px;
+        left: 0;
+        width: 100%;
+        background:whitesmoke;
+        /* background: #111; */
+        text-align: center;
+        padding: 16px 0;
+    }
+
+    .nav-links li {
+        margin: 9px 0;
+        margin-left: 14px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+        display: block;
+        padding: 8px 0;
+    }
+
+    /* Move Auth Buttons to the bottom */
+    .auth-buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 16px 0;
+        gap: 8px;
+        order: 1; /* Place after nav links */
+    }
+
+    .auth-buttons button {
+        width: 15%;
+        font-size: 13px;
+        margin-left: -39px;
+        padding: 0px;
+    }
+    .hamburger {
+      margin-top: -47px;
+        color: #18183f;
+        display: block;
+        cursor: pointer;
+        padding-right: 13px;
+    }
+    /* Show menu when toggled */
+    .show-menu {
+        display: flex !important;
+    }
+
+    /* Assuming you have a contact button or link with class "contact-link" */
+    .nav-links li.contact-link {
+        order: -1; /* Place before auth buttons when menu is active*/
+    }
+
+    .auth-buttons {
+        order: 0; /* Place after contact link when menu is active*/
+    }
+    
+}
+
+@media (max-width: 550px) {
+    .auth-buttons button {
+        width: 15%;
+        font-size: 13px;
+        margin-left: -44px;
+        padding: 0px;
+    }
+}
+
+
+@media (max-width: 442px) {
+    .auth-buttons button {
+        width: 22%;
+        font-size: 13px;
+        margin-left: -48px;
+        padding: 0px;
+    }
+}
+@media (max-width: 340px) {
+    .auth-buttons button {
+        width: 26%;
+        font-size: 13px;
+        margin-left: -48px;
+        padding: 0px;
+    }
+}
+
+@media (max-width: 440px) {
+    .logo img {
+        margin-left: -21px;
+        height: 184px;
+        margin-top: -40px;
+    }
+    .hamburger {
+      margin-top: -36px;
+      color: #18183f;
+      display: block;
+      cursor: pointer;
+      padding-right: 13px;
+  }
+}
+
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; /* Make each link a block-level element */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  border-radius:5px; /* Light gray on hover */
+}
+
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute; /* To position it below the button */
+  background-color: #f9f9f9; /* Light background */
+  min-width: 160px; /* Minimum width to hold content */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Subtle shadow */
+  z-index: 1; /* Ensure it's above other elements */
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  top: 98%;
+  right: 48px;
+  left: auto;
+}
+
+/* Style for the "Login" button to act as the container */
+.login-btn {
+  position: relative; /* Needed for absolute positioning of the dropdown */
+  /* Add other button styles as before */
+}
+
+/* Style the span containing text and icon */
+.login-btn span {
+  display: inline-flex; /* Align text and icon */
+  align-items: center; /* Vertically center items */
+  gap: 5px; /* Space between text and icon */
+  cursor: pointer; /* Indicate it's clickable */
+}
+
+/* Mobile view (max-width: 768px or your chosen breakpoint) */
+@media (max-width: 768px) {
+
+
+  .dropdown-content {
+    width: 80%;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    top: 98%;
+    right: 48px;
+    left: auto;
+}
+.auth-buttons button {
+  width: 15%;
+  font-size: 13px;
+  margin-left: -44px;
+  padding: 11px;
+  padding-left: 18px;
+}
+
+
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="logo">
+  <img src="../Images/1.svg" alt="Logo">
+</div>
+
+<ul class="nav-links">
+  <li><a class="active" href="/">Home</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="#pricing">Features</a></li>
+  <li><a href="#vision">Vision</a></li>
+  <li><a href="#contact">Contact</a></li>
+
+  <div class="auth-buttons">
+    <!-- Dropdown button for Login/Logout -->
+    <button class="login-btn">
+      <span onclick="toggleDropdown()">
+        <%= !(presentCookie.student_jwt || presentCookie.admin_jwt) ? 'Login' : 'Account' %> <!-- Display "Login" or "Account" based on authentication -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-left: -2px;">
+          <path d="M7 10l5 5 5-5z"/>
+        </svg>
+      </span>
+    </button>
+
+    <!-- Dropdown Menu for Login / Logout -->
+    <div class="dropdown-content" id="dropdownMenu">
+      <% if (!(presentCookie.student_jwt || presentCookie.admin_jwt)) { %>
+        <!-- If not logged in, show login and registration links -->
+        <a href="/admin">Admin Login</a>
+        <a href="/registration">Registration</a>
+        <a href="/login">Login</a>
+      <% } else { %>
+        <!-- If logged in as a student -->
+        <% if (presentCookie.student_jwt) { %>
+          <a href="/logout/student" class="dropdown-item">Student Logout</a>
+          <a href="/complain" class="dropdown-item">Complain</a>
+          <a href="/student/<%= studentId %>" class="dropdown-item">Student Dashboard</a>
+        <% } else { %>
+          <!-- If logged in as an admin -->
+          <a href="/logout/admin" class="dropdown-item">Admin Logout</a>
+          <a href="/admin/adminDashboard" class="dropdown-item">Admin Dashboard</a>
+        <% } %>
+      <% } %>
+    </div>
+  </div>
+
+</ul>
+
+<div class="hamburger" onclick="toggleMenu()">
+  <i class="fas fa-bars"></i>
+</div>
+</nav>
+
+
+
+   
+
+
+
+  <section class="hero">
+    <div class="hero-content">
+        <h1>Effortless Complaint Management</h1>
+        <p>Submit, track, and resolve college-related issues seamlessly with E-Desk.</p>
+        <a href="/complain" class="hero-btn">File a Complaint</a>
+    </div>
+  </section>
+
+   <!-- What is Complaint Management Software -->
+   <section class="cms-section">
+    <div class="cms-text">
+        <h2>What is Complaint Management Software?</h2>
+    </div>
+    <div class="cms-answer">
+        <p>Complaint Management Software helps institutions efficiently handle and resolve complaints by providing a structured system for students to submit issues, track progress, and receive timely resolutions.</p>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+<section class="how-it-works">
+  <h2>How It Works</h2>
+  <p>Follow these steps to complete the process:</p>
+    <div class="steps-container">
+        <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-title">Register</div>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-title">Submit Complaint</div>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-title">Track Progress</div>
+        </div>
+        <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-title">Resolution</div>
+        </div>
+    </div>
+  </section>
+
+<!-- Features & Pricing -->
+<section id="pricing">
+  <div class="pricing-image">
+    <img src="../Images/handshake1.webp" alt="E-Desk Features">
+  </div>
+  <div class="pricing-details">
+      <h2>Features & Pricing</h2>
+      <h3>Starting at just <span>$9.99/month</span></h3>
+      <ul>
+          <li>✔ Simple Complaint Filing</li>
+          <li>✔ Real-Time Tracking</li>
+          <li>✔ Anonymous Complaints Option</li>
+          <li>✔ Admin & Staff Support</li>
+          <li>✔ Email & SMS Notifications</li>
+      </ul>
+      <a href="#contact" class="hero-btn">Get Started</a>
+  </div>
+</section>
+  
+  <!-- Vision -->
+
+  <section id="vision">
+    <div class="container">
+      <h2>Our Vision</h2>
+      <p>
+        We envision E-Desk as more than just a complaint portal—it’s a step
+          toward building a collaborative and inclusive campus environment. We
+          believe that when voices are heard and issues are resolved promptly, it
+          creates a culture of trust, mutual respect, and progress. Our goal is to
+          help colleges become more efficient, student-friendly, and responsive to
+          the needs of their community.
+      </p>
+    </div>
+  </section>
+
+  <!-- Trusted Partner -->
+  <section id="trusted">
+    <div class="container-fluid-override container-xl mt-4">
+      <h2 class="trusted-partner">Trusted by these Indian Colleges and more</h2>
+      <div
+        class="logo-component d-flex flex-row align-items-center justify-content-center flex-wrap logo-component-gap"
+      >
+        <div class="logo">
+          <img
+            decoding="async"
+            width="100"
+            height="100"
+            src="../Images/Birlalogo.jpg"
+            class="img-fluid w-auto ls-is-cached lazyloaded"
+            alt="Birla Institute Of Applied Sciences"
+          />
+        </div>
+        <div class="logo">
+          <img
+            decoding="async"
+            width="100"
+            height="100"
+            src="../Images/amitylogo.png"
+            class="img-fluid w-auto ls-is-cached lazyloaded"
+            alt="Amity International School"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+
+  <div id="faq-container">
+    <h1 class="faq-title">Frequently Asked Questions</h1>
+
+    <div class="faq-item">
+      <div class="faq-question">How do I submit a complaint?</div>
+      <div class="faq-answer">
+        You can submit a complaint by logging into your account and filling out
+        the complaint form under the "Submit Complaint" section.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        How long does it take to resolve a complaint?
+      </div>
+      <div class="faq-answer">
+        The resolution time depends on the type of complaint. Generally,
+        complaints are addressed within 3-5 working days.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How can I track my complaint status?</div>
+      <div class="faq-answer">
+        You can track your complaint status by going to the "My Complaints"
+        section in your dashboard.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can I edit my submitted complaint?</div>
+      <div class="faq-answer">
+        No, once a complaint is submitted, it cannot be edited. However, you can
+        contact support for urgent changes.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Who can view my complaint?</div>
+      <div class="faq-answer">
+        Only you and the concerned authorities have access to view your
+        complaint. It remains confidential.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        What should I do if my complaint is not resolved?
+      </div>
+      <div class="faq-answer">
+        If your complaint is not resolved within the expected timeframe, you can
+        escalate it to a higher authority through the "Escalate Complaint"
+        option.
+      </div>
+    </div>
+  </div>
+
+  <!-- Contacts -->
+  
+  <section id="contact">
+    <div class="contactus">
+      <div class="contact-title">
+        <h1>Get In Touch</h1>
+      </div>
+      <div class="contact-section">
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-right">
+  
+          <!-- Replace with your Access Key -->
+          <input type="hidden" name="access_key" value="2d396ccc-3763-4807-baa4-73e7983a023b">
+      
+          <!-- Form Inputs. Each input must have a name="" attribute -->
+          <label>Your Name</label>
+          <input type="text" name="name" placeholder="Enter Your Name" required>
+          <label>Your Email</label>
+          <input type="email" name="email" placeholder="Enter Your Email" required>
+          <label>Your Message</label>
+          <textarea name="message" rows="8"
+          placeholder="Enter Your Message" required></textarea>
+      
+          <!-- Honeypot Spam Protection -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+      
+          <!-- Custom Confirmation / Success Page -->
+          <!-- <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html"> -->
+      
+          <button type="submit" class="hero-btn">Submit Now</button>
+      
+      </form>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- Footer -->
+  <footer>
+    <div style="max-width: 1200px; margin: auto">
+      <!-- Footer Links -->
+      <nav style="margin-bottom: 20px">
+        <a
+          href="/about"
+          style="color: white; text-decoration: none; margin: 0 15px"
+          >About Us</a
+        >
+        <a
+          href="#"
+          style="color: white; text-decoration: none; margin: 0 15px"
+          >Privacy Policy</a
+        >
+        <a
+          href="#"
+          style="color: white; text-decoration: none; margin: 0 15px"
+          >Terms of Service</a
+        >
+        <a
+          href="#"
+          style="color: white; text-decoration: none; margin: 0 15px"
+          >Contact Support</a
+        >
+      </nav>
+    </div>
+    <br />
+    <p>&copy; 2025 Bitquark Technologies. All Rights Reserved.</p>
+  </footer>
+  <!-- Navbar Script -->
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.querySelector(".nav-links");
+      const authButtons = document.querySelector(".auth-buttons");
+    
+      navLinks.classList.toggle("show-menu");
+      authButtons.classList.toggle("show-menu");
+    }
+    
+    function toggleDropdown() {
+      const dropdown = document.getElementById("dropdownMenu");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+    
+    // Close dropdown when clicking outside the button or dropdown
+    window.onclick = function(event) {
+      const dropdown = document.getElementById("dropdownMenu");
+      const loginButton = document.querySelector('.login-btn'); // Get the button element
+    
+      if (dropdown && dropdown.style.display === "block" && event.target !== loginButton && !loginButton.contains(event.target) && event.target !== dropdown && !dropdown.contains(event.target)) {
+        dropdown.style.display = "none";
+      }
+    }
+  </script>
+  
+  <!-- FAQ Script -->
+  <script>
+    document.querySelectorAll(".faq-question").forEach((item) => {
+      item.addEventListener("click", () => {
+        const answer = item.nextElementSibling;
+        answer.style.display =
+          answer.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
+  <!-- Contact Us Script -->
+  <script>
+    document.getElementById("contact").addEventListener("submit", async function (event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+  
+      formData.append("access_key", "2d396ccc-3763-4807-baa4-73e7983a023b");
+  
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+  
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      }).then((res) => res.json());
+  
+      if (res.success) {
+        alert(res.message);
+        event.target.reset(); // Clear the form on success
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    });
+  </script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"
+  ></script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

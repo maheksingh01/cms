@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../Images/3.svg" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../CSS/login.css" />
+    <link rel="stylesheet" href="../CSS/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 108px;
+        padding: 0 80px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(to right, #f5f5f5, #ffffff);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        transition: background 0.3s ease-in-out;
+      }
+
+      /* Logo */
+      .logo img {
+        margin-top: 0px;
+        height: 232px;
+        width: auto;
+      }
+
+      /* Navigation Links */
+      .nav-links {
+        margin-top: 0px;
+        display: flex;
+        list-style: none;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .nav-links li {
+        margin: 21px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        /* color: #6359ad; */
+        color: #111;
+        font-size: 15px;
+        font-weight: 700;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .nav-links a:hover {
+        color: #8b2635;
+      }
+
+      /* Authentication Buttons */
+      .auth-buttons {
+        display: flex;
+        margin-left: 33px;
+        align-items: center;
+      }
+
+      .auth-buttons button {
+        /* background-color:#8B2635;  */
+        background-color: #4353b7;
+        color: white;
+        padding: 10px 20px; /* Adjust padding as needed */
+        border: none;
+        border-radius: 5px; /* Or the border radius from the image */
+        font-size: 16px; /* Adjust font size as needed */
+        font-weight: bold; /* If the text is bold */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        padding-right: 18px;
+      }
+      .auth-buttons button a {
+        color: white;
+      }
+      .auth-buttons button a:hover {
+        color: rgb(243, 238, 238);
+      }
+
+      .auth-buttons .login-btn:hover {
+        transform: scale(1.05);
+        /* background-color: #3858AC; */
+        background-color: #4353b7;
+        /* color: white; */
+      }
+      .auth-buttons .signup-btn:hover {
+        transform: scale(1.05);
+        border: 2px solid #f4f3f1;
+        /* color: white; */
+      }
+
+      /* Hamburger Menu */
+      .hamburger {
+        display: none;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .hamburger:hover {
+        transform: scale(1.1);
+      }
+
+      /* Responsive Navbar */
+      @media (max-width: 1024px) {
+        .navbar {
+          padding: 0 48px;
+        }
+
+        .logo img {
+          margin-top: 0px;
+          height: 201px;
+        }
+
+        .nav-links li {
+          margin: 11px;
+        }
+
+        .nav-links a {
+          font-size: 14px;
+        }
+
+        .auth-buttons button {
+          font-size: 14px;
+          padding: 10px 20px;
+        }
+        .nav-links {
+          margin-top: -30px;
+          display: flex;
+          list-style: none;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+      @media (max-width: 1024px) {
+      }
+
+      /* Tablets & Mobile (Width ≤ 768px) */
+      @media (max-width: 800px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 109px;
+          left: 0;
+          width: 100%;
+          background: whitesmoke;
+          /* background: #111; */
+          text-align: center;
+          padding: 16px 0;
+        }
+
+        .nav-links li {
+          margin: 9px 0;
+          margin-left: 14px;
+        }
+
+        .nav-links a {
+          font-size: 16px;
+          display: block;
+          padding: 8px 0;
+        }
+
+        /* Move Auth Buttons to the bottom */
+        .auth-buttons {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          padding: 16px 0;
+          gap: 8px;
+          order: 1; /* Place after nav links */
+        }
+
+        .auth-buttons button {
+          width: 15%;
+          font-size: 13px;
+          margin-left: -39px;
+          padding: 0px;
+        }
+        .hamburger {
+          margin-top: 0px;
+          color: #18183f;
+          display: block;
+          cursor: pointer;
+          padding-right: 13px;
+        }
+        /* Show menu when toggled */
+        .show-menu {
+          display: flex !important;
+        }
+
+        /* Assuming you have a contact button or link with class "contact-link" */
+        .nav-links li.contact-link {
+          order: -1; /* Place before auth buttons when menu is active*/
+        }
+
+        .auth-buttons {
+          order: 0; /* Place after contact link when menu is active*/
+        }
+      }
+
+      @media (max-width: 550px) {
+        .auth-buttons button {
+          width: 15%;
+          font-size: 13px;
+          margin-left: -44px;
+          padding: 0px;
+        }
+      }
+
+      @media (max-width: 442px) {
+        .auth-buttons button {
+          width: 22%;
+          font-size: 13px;
+          margin-left: -48px;
+          padding: 0px;
+        }
+      }
+      @media (max-width: 340px) {
+        .auth-buttons button {
+          width: 26%;
+          font-size: 13px;
+          margin-left: -48px;
+          padding: 0px;
+        }
+      }
+
+      @media (max-width: 440px) {
+        .logo img {
+          margin-left: -21px;
+          height: 184px;
+          margin-top: 0px;
+        }
+        .hamburger {
+          margin-top: 0px;
+          color: #18183f;
+          display: block;
+          cursor: pointer;
+          padding-right: 13px;
+        }
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block; /* Make each link a block-level element */
+        transition: background-color 0.3s ease; /* Smooth hover effect */
+      }
+
+      .dropdown-content a:hover {
+        background-color: #ddd;
+        border-radius: 5px; /* Light gray on hover */
+      }
+
+      .dropdown-content {
+        display: none; /* Hidden by default */
+        position: absolute; /* To position it below the button */
+        background-color: #f9f9f9; /* Light background */
+        min-width: 160px; /* Minimum width to hold content */
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        z-index: 1; /* Ensure it's above other elements */
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        top: 98%;
+        right: 48px;
+        left: auto;
+      }
+
+      /* Style for the "Login" button to act as the container */
+      .login-btn {
+        position: relative; /* Needed for absolute positioning of the dropdown */
+        /* Add other button styles as before */
+      }
+
+      /* Style the span containing text and icon */
+      .login-btn span {
+        display: inline-flex; /* Align text and icon */
+        align-items: center; /* Vertically center items */
+        gap: 5px; /* Space between text and icon */
+        cursor: pointer; /* Indicate it's clickable */
+      }
+
+      /* Mobile view (max-width: 768px or your chosen breakpoint) */
+      @media (max-width: 768px) {
+        .dropdown-content {
+          width: 80%;
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          z-index: 1;
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+          top: 98%;
+          right: 48px;
+          left: auto;
+        }
+        .auth-buttons button {
+          width: 26%;
+          font-size: 13px;
+          margin-left: -44px;
+          padding: 7px;
+          padding-left: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../Images/1.svg" alt="Logo" />
+      </div>
+      <ul class="nav-links">
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <div class="auth-buttons">
+          <button class="login-btn">
+            <span class="login-btn" onclick="toggleDropdown()">
+              <!-- Login -->
+              <a href="/login">Login</a>
+            </span>
+          </button>
+        </div>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
+    <!-- Login Toggle Form -->
+    <div class="container">
+      <div class="container-left">
+        <div id="adminForm" class="form-container active">
+          <h2
+            style="
+              font-weight: 700;
+              color: black;
+              padding-bottom: 19px;
+              font-size: 25px;
+            "
+          >
+            Admin Login
+          </h2>
+          <form action="/admin" method="POST">
+            <input
+              class="box"
+              type="text"
+              name="AdminEmail"
+              placeholder="Enter Admin User ID"
+              required
+            />
+            <input
+              class="box"
+              type="password"
+              name="AdminPassword"
+              placeholder="Enter Password"
+              required
+            />
+            <button
+              style="
+                margin-top: 5px;
+                padding: 10px 26px;
+                color: white;
+                font-size: 16px;
+                border: none;
+                border-radius: 4px;
+                width: 92%;
+                margin-bottom: 22px;
+                background-color: #4353b7;
+              "
+              type="submit"
+              name="AdminButton"
+              class="btn btn-primary w-100"
+            >
+              Log In
+            </button>
+          </form>
+        </div>
+
+        <div id="userForm" class="form-container">
+          <h2
+            style="
+              font-weight: 700;
+              color: black;
+              padding-bottom: 19px;
+              font-size: 25px;
+            "
+          >
+            Student Login
+          </h2>
+          <form action="/login" method="POST">
+            <input
+              class="box"
+              type="text"
+              name="LoginName"
+              placeholder="Enter User ID"
+              required
+            />
+            <input
+              class="box"
+              type="password"
+              name="LoginPassword"
+              placeholder="Enter Password"
+              required
+            />
+            <button
+              style="
+                margin-top: 5px;
+                padding: 10px 26px;
+                color: white;
+                font-size: 16px;
+                border: none;
+                border-radius: 4px;
+                width: 92%;
+
+                margin-bottom: 22px;
+                background-color: #4353b7;
+              "
+              type="submit"
+              name="LoginButton"
+              class="btn btn-primary w-100"
+            >
+              Login
+            </button>
+          </form>
+        </div>
+        <div class="toggle-btn">
+          <button id="adminToggle" class="active" onclick="toggleForm('admin')">
+            Admin
+          </button>
+          <button id="userToggle" onclick="toggleForm('user')">User</button>
+        </div>
+        <div class="form-footer">
+          <p>
+            No account?
+            <a style="color: #4353b7" href="/registration">Register</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="image-section">
+        <img src="./Images/1.svg" alt="Bitquark Technologies" />
+      </div>
+    </div>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-quick">
+          <h2>Quick Links</h2>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#pricing">Features</a></li>
+
+            <!-- <li><a href="/about">About</a></li> -->
+            <li><a href="/login">Admin / User Login</a></li>
+            <li><a href="/registration">Registration</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-support">
+          <h2>Support</h2>
+          <ul>
+            <li><a href="/#faq-container">FAQ's</a></li>
+            <li><a href="./about">How It Works</a></li>
+            <li><a href="/#contact">Contact Support</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-services">
+          <h2>Services</h2>
+          <ul>
+            <li><a href="#">Complaint Submission</a></li>
+            <li><a href="#">Status Tracking</a></li>
+            <li><a href="#">Automated Notifications</a></li>
+            <li><a href="#">Analytics & Reporting</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h2>Contact</h2>
+          <p>info@bitquarktechnologies.com</p>
+          <p>Phone: +1 (587) 969-1888</p>
+          <!-- <p>
+            Suite 240 N - 3015 5 Avenue <br />
+            NE Calgary AB T2A 6C9
+          </p> -->
+          <div class="social-icons">
+            <a
+              href="https://www.instagram.com/bitquarktechnologies/ "
+              class="fa-brands fa-instagram"
+            ></a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61564393799208 "
+              class="fa-brands fa-facebook"
+            ></a>
+            <a
+              href="https://www.linkedin.com/company/bitquark-technologies/posts/?feedView=all"
+              class="fa-brands fa-linkedin"
+            ></a>
+            <!-- <a href="#" class="fa-brands fa-twitter"></a> -->
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 BitQuark Technologies System. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </footer>
+    <script>
+      function toggleForm(formType) {
+        const adminForm = document.getElementById("adminForm");
+        const userForm = document.getElementById("userForm");
+        const adminToggle = document.getElementById("adminToggle");
+        const userToggle = document.getElementById("userToggle");
+
+        if (formType === "admin") {
+          adminForm.classList.add("active");
+          userForm.classList.remove("active");
+          adminToggle.classList.add("active");
+          userToggle.classList.remove("active");
+        } else {
+          userForm.classList.add("active");
+          adminForm.classList.remove("active");
+          userToggle.classList.add("active");
+          adminToggle.classList.remove("active");
+        }
+      }
+
+      function toggleDropdown() {
+        const dropdown = document.getElementById("dropdownMenu");
+        dropdown.style.display =
+          dropdown.style.display === "block" ? "none" : "block";
+      }
+
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        navLinks.style.display =
+          navLinks.style.display === "flex" ? "none" : "flex";
+      }
+
+      // Hide dropdown if clicked outside
+      document.addEventListener("click", function (event) {
+        const dropdown = document.getElementById("dropdownMenu");
+        const button = document.querySelector(".login-btn");
+        if (
+          !button.contains(event.target) &&
+          !dropdown.contains(event.target)
+        ) {
+          dropdown.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

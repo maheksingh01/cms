@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../Images/3.svg" />
+    <title>Complaint</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./CSS/complaint.css" />
+    <link rel="stylesheet" href="./CSS/studentDashboard.css" />
+    <style>
+      .DesktopNav {
+        display: flex;
+        width: 100%;
+        height: 113px;
+        align-items: center;
+        justify-content: space-between;
+        /* padding: 20px 30px;  */
+        padding: 20px 10px;
+        /* padding-left: 30px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-right: 5px; */
+        /* background-color: rgb(130, 48, 168); */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: rgb(250, 250, 250);
+        color: white;
+      }
+      @media (max-width: 479px) {
+        .DesktopNav img {
+          width: 131px;
+          margin-left: 20px;
+          height: 225px;
+        }
+        .DesktopNav {
+          display: flex;
+          width: 100%;
+          height: 82px;
+          align-items: center;
+          justify-content: space-between;
+          /* padding: 20px 30px; */
+          padding: 0px 10px;
+          /* background-color: rgb(130, 48, 168); */
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          background-color: rgb(250, 250, 250);
+          color: white;
+        }
+        .button1 {
+          width: 63px;
+          height: 30px;
+          font-size: 0.6rem 9.6px;
+        }
+        .buttons {
+          display: flex;
+          column-gap: 10px;
+          margin-right: 9px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="DesktopNav">
+      <img src="../Images/1.svg" alt="Bitquark Technologies" />
+
+      <div class="buttons">
+        <a href="/" class="button1">Home</a>
+        <a href="/logout/student" class="button1">Logout</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- Left Section: Form -->
+      <div class="container-left">
+        <div id="adminForm" class="form-container active">
+          <h2
+            style="
+              font-weight: 700;
+              color: Black;
+              padding-bottom: 19px;
+              font-size: 25px;
+            "
+          >
+            Complaint Form
+          </h2>
+          <form action="/complain" method="post" enctype="multipart/form-data">
+            <!-- First Name -->
+            <input
+              class="box form-control"
+              type="text"
+              name="fname"
+              placeholder="Enter First Name"
+              required
+            />
+
+            <!-- Last Name -->
+            <input
+              class="box form-control"
+              type="text"
+              name="lname"
+              placeholder="Enter Last Name"
+              required
+            />
+
+            <!-- Hostel Number -->
+            <div>
+              <label class="form-label">Hostel No.</label>
+              <div class="d-flex flex-wrap gap-3">
+                <div><input type="radio" name="building" value="B1" /> B1</div>
+                <div><input type="radio" name="building" value="B2" /> B2</div>
+                <div><input type="radio" name="building" value="B3" /> B3</div>
+                <div><input type="radio" name="building" value="B4" /> B4</div>
+                <div><input type="radio" name="building" value="B5" /> B5</div>
+                <div><input type="radio" name="building" value="G1" /> G1</div>
+                <div><input type="radio" name="building" value="G2" /> G2</div>
+              </div>
+            </div>
+
+            <!-- Room Number -->
+            <input
+              class="box form-control"
+              type="text"
+              name="RoomNumber"
+              placeholder="Enter Your Room No."
+              required
+            />
+
+            <!-- Complaint Text -->
+            <textarea
+              class="form-control"
+              name="ComplainText"
+              rows="5"
+              placeholder="Write your complaint here"
+              required
+            ></textarea>
+
+            <!-- File Upload -->
+            <input
+              class="form-control"
+              type="file"
+              name="myImage"
+              accept="image/*"
+            />
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100 mt-3">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Section: Image -->
+      <div class="image-section">
+        <img src="../Images/1.svg" alt="Complaint Image" />
+      </div>
+    </div>
+    <footer class="cms-footer">
+      <p>&copy; 2025 BitQuark Technologies. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

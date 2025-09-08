@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../Images/3.svg" />
+    <title>Admin Dashboard</title>
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/876f50f80d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="../CSS/adminDashboard.css" />
+  </head>
+
+  <body>
+    <!-- Desktop Navigation -->
+    <nav class="DesktopNav">
+      <img src="../Images/1.svg" alt="Bitquark Technologies" />
+      <span class="email">Hello Admin!</span>
+      <div class="buttons">
+        <a href="/" class="button1">Home</a>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <nav class="MobileNav">
+      <span class="email">Hello Admin</span>
+      <a href="/" class="button2">Home</a>
+      <!-- <div class="icons">
+        <i class="icon1 fas fa-bars"></i>
+        <i class="icon2 toggle fas fa-xmark"></i>
+      </div> -->
+    </nav>
+
+    <!-- Mobile Popup Navigation -->
+    <!-- <div class="popup toggle">
+      <div class="Popupbuttons">
+        <a href="/" class="button1">Home</a>
+      </div>
+    </div> -->
+
+    <main>
+      <!-- <div class="table">
+        <div class="table_header">
+          <p>Namaste Admin!</p>
+        </div> -->
+
+        <div class="table_section">
+          <% if (data.length > 0) { %>
+          <table>
+            <thead>
+              <tr>
+                <th>S No.</th>
+                <th>Name</th>
+                <th>Room Number</th>
+                <th>Building</th>
+                <th>Complaint Detail</th>
+                <th>Image</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% data.forEach(function(item, index) { %>
+              <tr class="clicked_tr">
+                <td><%= index + 1 %></td>
+                <td><%= item.firstName %> <%= item.lastName %></td>
+                <td><%= item.roomNumber %></td>
+                <td><%= item.building %></td>
+                <td class="complainText_td"><%= item.complainText %></td>
+                <td>
+                  <img src="/uploads/<%= item.image %>" alt="Complaint Image" />
+                </td>
+                <td>
+                  <div class="lasttd">
+                    <form class="form1" action="/admin/delete" method="post">
+                      <!-- <span class="popup_btn">
+                        <i class="detail fa-solid fa-circle-info"></i>
+                      </span> -->
+                      <button name="TargetToDelete" value="<%= item._id %>">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </form>
+                    <form action="/admin/update" method="post">
+                      <button
+                        class="resolveBtn"
+                        name="TargetToUpdate"
+                        value="<%= item._id %>"
+                      >
+                        <%= item.status %>
+                      </button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+          <% } else { %>
+          <div class="no-complaint">
+            <h2>No Complaints Available Currently</h2>
+          </div>
+          <% } %>
+        </div>
+
+        <!-- Popup Modal -->
+        <!-- <div class="popup">
+          <div class="popup-inner">
+            <div class="project-popup-content">
+              <span class="project-popup-close">
+                <i class="fa fa-solid fa-xmark"></i>
+              </span>
+              <div class="popup-img">
+                <img class="popup-img-inner" src="" alt="Complaint Image" />
+              </div>
+              <div class="popup-detail">
+                <h2>Complaint Detail</h2>
+                <p class="popup-detail-p">Complaint</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </main>
+    <footer class="cms-footer">
+      <p>&copy; 2025 BitQuark Technologies. All rights reserved.</p>
+    </footer>
+    <!-- JavaScript -->
+    <script src="/js/popup_script.js"></script>
+  </body>
+</html>
